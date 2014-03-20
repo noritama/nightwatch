@@ -54,8 +54,7 @@ module.exports = new (function() {
 
     if (keys.indexOf('setUp') > -1) {
       setUp = function(clientFn) {
-        module.setUp(module.client);
-        clientFn();
+        module.setUp(module.client, clientFn);
       };
       keys.splice(keys.indexOf('setUp'), 1);
       testResults.steps.splice(testResults.steps.indexOf('setUp'), 1);
@@ -67,8 +66,7 @@ module.exports = new (function() {
 
     if (keys.indexOf('tearDown') > -1) {
       tearDown = function(clientFn) {
-        module.tearDown(client.api);
-        clientFn();
+        module.tearDown(client.api, clientFn);
       };
       keys.splice(keys.indexOf('tearDown'), 1);
       testResults.steps.splice(testResults.steps.indexOf('tearDown'), 1);
